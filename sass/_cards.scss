@@ -1,0 +1,43 @@
+.books__card{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.books__card--item{
+    flex-basis: 400px;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    width: 400px;
+    height: auto;
+    background-color: $primary-color;
+    text-transform: uppercase;
+    color: $text-color;
+    border-radius: 10px;
+    padding: $padding-2;
+    p{
+        margin-bottom: $margin-1;
+    }
+    .title{
+        font-style: italic;
+    }
+    .author{
+        font-weight: bold;
+    }
+    .read{
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        justify-content: flex-start;
+        .read_yes,
+        .read_no{
+            display: none;
+        }
+    }
+    @media (max-width: 420px) {
+        width: 90vw;
+    }
+}

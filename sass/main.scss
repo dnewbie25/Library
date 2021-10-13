@@ -1,0 +1,31 @@
+@import "config", "cards", "buttons", "modal";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    background-color: $primary-background;
+    font-family: $roboto-condensed;
+}
+
+h1 {
+    background-color: $secondary-color;
+    color: $text-color;
+    text-align: center;
+    padding: $padding-2;
+    text-transform: uppercase;
+    box-shadow: 0px 1px 3px white;
+    text-shadow: 2px 2px 10px black;
+}
+
+main{
+    margin: 0 auto;
+    padding: $padding-1;
+    display: flex;
+}
+

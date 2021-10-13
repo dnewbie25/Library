@@ -1,0 +1,62 @@
+#add-book{
+    display: block;
+    margin: 0 auto;
+    margin-top: $margin-2;
+    margin-bottom: $margin-2;
+    text-transform: uppercase;
+    background-color: $secondary-background;
+    cursor: pointer;
+    padding: $padding-1 $padding-3;
+    border: 2px solid transparent;
+    border-radius: $padding-3;
+    font-weight: bold;
+    font-size: 1rem;
+    &:hover{
+        border-color: $primary-color;
+        opacity: 0.85;
+    }
+}
+
+@mixin read-style-button {
+    border: 2px solid white;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: $padding-1;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: block;
+}
+
+.read_yes{
+    @include read-style-button;
+    background-color: green;
+    &:hover{
+        opacity: 0.6;
+    }
+}
+
+.read_no{
+    @include read-style-button;
+    background-color: red;
+    &:hover{
+        opacity: 0.6;
+    }
+}
+
+.delete{
+    background-color: $tertiary-color;
+    color: $text-color;
+    padding: $padding-1 $padding-2;
+    border-radius: $padding-2;
+    border: 2px solid transparent;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 200ms;
+    &:hover{
+        border-color: $text-color;
+    }
+}
