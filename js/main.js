@@ -153,32 +153,84 @@
 // });
 
 // Creating the book class
-class Book{
+class Book {
     // list of books and item number. Class methods
     static itemNumber = 0;
-    static bookList =[];
+    static bookList = [];
 
-    constructor(title, author, pages, read){
+    constructor(title, author, pages, read) {
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.read = read;
     }
     // instance methods
-    addBookToList(){
+    addBookToList() {
         let book = {
             title: this.title,
-            author:this.author,
-            pages:this.pages,
+            author: this.author,
+            pages: this.pages,
             read: false,
             item: Book.itemNumber
         };
         Book.bookList.push(book);
         Book.itemNumber++;
     }
-    
-    static deleteBookFromList(bookIndex){
+
+    changeReadStatus() {
+        if (this.read === false) {
+            this.read = true;
+        } else {
+            this.read = false;
+        }
+        return this.read;
+    }
+
+    // class method
+    static deleteBookFromList(bookIndex) {
         // checks and finds the index of the book with X item value and splice 1 
-        Book.bookList.splice(Book.bookList.findIndex(book=>book.item === bookIndex),1);
+        Book.bookList.splice(Book.bookList.findIndex(book => book.item === bookIndex), 1);
     }
 }
+
+// UI interactions
+class UI {
+    static addBoookForm() {
+        const titleField = document.getElementById('title').value;
+        const authorField = document.getElementById('author').value;
+        const pagesField = document.getElementById('pages').value;
+        const readField = document.getElementById('read').checked;
+        const book = new Book(titleField, authorField, pagesField, readField);
+        book.addBookToList();
+    }
+
+    #createBookItem(parent, book) {
+        //make sure book points to last element in the array
+        const cardItem = document.createElement('div');
+        cardItem.classList.add('books__card--item');
+        cardItem.setAttribute('item', book.item)
+        parent.appendChild(cardItem);
+    }
+}
+
+// open modal and add listener to button
+const formModal = document.querySelector('.books-form');
+let submit = document.querySelector('form');
+document.addEventListener('click', e => {
+    if (e.target.id === 'add-book') {
+        formModal.style.display = 'block';
+    }else if(e.target.classList.contains('close-btn')){
+        formModal.style.display = 'none';
+        document.getElementById('formFields').reset();
+    }
+});
+
+// this event listeners add to booklist
+submit.addEventListener('submit', e => {
+    e.preventDefault();
+    UI.addBoookForm();
+    console.log(1);
+    // closes modal and reset fields
+    formModal.style.display = 'none';
+    document.getElementById('formFields').reset();
+});
