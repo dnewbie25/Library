@@ -17,15 +17,16 @@
 
 Users should be able to:
 
-- Add, delete and update the read status of each book they add.
+- Add and delete books to the library.
+- Update the read status of each book added.
 
 ### Screenshot
 
-![]()
+![](images/preview.PNG)
 
 ### Links
 
-- [Live Site]()
+- [Live Site](https://my-library-odin.netlify.app)
 
 ## My process
 
