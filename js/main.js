@@ -130,7 +130,6 @@ document.addEventListener('click', e => {
 submit.addEventListener('submit', e => {
     e.preventDefault();
     UI.addBoookForm();
-    console.log(1);
     // closes modal and reset fields
     formModal.style.display = 'none';
     document.getElementById('formFields').reset();
