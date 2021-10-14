@@ -166,5 +166,11 @@ window.addEventListener('click',e=>{
         e.target.textContent = '';
         e.target.appendChild(readIcon);
         Book.changeReadStatus(item);
+    }else if(e.target.parentElement.classList.contains('read_yes')){
+        const item = Number(e.target.parentElement.parentElement.parentElement.getAttribute('item'));
+        e.target.parentElement.classList.remove('read_yes');
+        e.target.parentElement.classList.add('read_no');
+        e.target.parentElement.textContent = 'X';
+        Book.changeReadStatus(item);
     }
 });
